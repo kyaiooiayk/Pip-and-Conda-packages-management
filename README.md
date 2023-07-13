@@ -2,9 +2,8 @@
 ***
 
 ## Pip vs. Conda
-- Pip installs Python packages whereas conda installs packages which may contain software written in any language. 
-- Conda` can install Python packages as well as the Python interpreter directly whereas pip installs only python packages.
-- Conda has the ability to create isolated environments that can contain different versions of Python and/or the packages installed in them. Pip has no built in support for environments but rather depends on other tools like virtualenv or venv to create isolated environments. 
+- `Pip` is an open source project and is maintained by PyPa (Python Packaging Authority). Pip installs Python packages whereas conda installs packages which may contain software written in any language. 
+- `Conda` is the commericial equivalent of `pip` maintained by Continuum analytics. Very briefly, consider conda an option suited for non coders. This is the easiest way to reach the wide academic, commerical, and Windoes-using audience. Conda can install Python packages as well as the Python interpreter directly whereas pip installs only python packages. `Conda` has the ability to create isolated environments that can contain different versions of Python and/or the packages installed in them. Pip has no built in support for environments but rather depends on other tools like virtualenv or venv to create isolated environments. 
 ***
 
 ## Mixing Pip and Conda
@@ -40,7 +39,7 @@
 
 ## Telling pip what to download
 -  You can use `pip download` rather than `pip install` so that you can inspect the resulting wheel, but the flags will work with either of them.
-```
+```shell
 $ pushd "$(mktemp -d)"
 $ pip download --only-binary :all: --dest . --no-cache <package_name>
 ```
@@ -49,7 +48,7 @@ $ pip download --only-binary :all: --dest . --no-cache <package_name>
 - `--dest .` tells pip to download to the current directory.
 - `--no-cache` tells pip not to look in its local download cache.
 
-```
+```shell
 $ # Install `yarl` and use only wheels for yarl and all dependencies
 $ pip install --only-binary :all: yarl
 
@@ -73,5 +72,3 @@ $ pip install --no-binary multidict yarl
 - `pipreqs path/to/project` gives you only the ones actually imported by this project
 - If you were to inspect the `requirements.txt` file you may see something like this `mock-django~=0.6.10`. This means it will select the latest version of the package, greater than or equal to 0.6.10, but still in the 0.6.* version, so it won't download 0.7.0 for example. It ensures you will get security fixes but keep backward-compatibility
 ***
-
-
