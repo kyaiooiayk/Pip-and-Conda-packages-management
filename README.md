@@ -24,11 +24,17 @@
 ***
 
 ## Issue installing python packages
-- This a list of methods I use to install packages. If one fails I move to the next suggested one:
+This a list of ordered methods you can use to install packages. If one fails, you can move to the next suggested one:
 - `pip install package_name`
 - `pip3 install package_name`
 - `conda install package_name`
 - Last resort (installing form source): `git clone package_name`, `cd package_name` and `python setup.py install`
+***
+
+## pip vs pip3
+- pip and pip3 are both package managers for Python.
+One of the main differences between pip and pip3 is the version of Python that they are associated with. pip is associated with Python 2.x, while pip3 is associated with Python 3.x. This means that if you are working with Python 2.x, you will need to use pip, and if you are working with Python 3.x, you **should** use pip3.
+- What happens if you use pip with Python 3.x? Firstly, it is still but it is not recommended as it can lead to compatibility issues and errors.
 ***
 
 ## Installing packages
@@ -71,4 +77,8 @@ $ pip install --no-binary multidict yarl
 - `pip freeze > requirements.txt` outputs all the installed packages in that environment
 - `pipreqs path/to/project` gives you only the ones actually imported by this project
 - If you were to inspect the `requirements.txt` file you may see something like this `mock-django~=0.6.10`. This means it will select the latest version of the package, greater than or equal to 0.6.10, but still in the 0.6.* version, so it won't download 0.7.0 for example. It ensures you will get security fixes but keep backward-compatibility
+***
+
+## References
+- [pip vs. pip3](https://www.binarystudy.com/2023/05/difference-between-pip-and-pip3.html)
 ***
